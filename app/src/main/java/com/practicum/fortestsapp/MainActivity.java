@@ -96,9 +96,8 @@ public class MainActivity extends AppCompatActivity {
         pBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //pTxt2.setText("Button has been push");
-                sortData(0, data.length-1, data);
-                //Arrays.sort(data); // Сортировка массива с помощью встроенных функций
+                //sortData(0, data.length-1, data);
+                Arrays.sort(data); // Сортировка массива с помощью встроенных функций
                 pTxt2.setText(getDataTxt(data));
             }
         });
