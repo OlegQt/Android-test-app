@@ -1,6 +1,7 @@
 package com.practicum.fortestsapp;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Engine {
@@ -15,16 +16,50 @@ public class Engine {
     // Functions
     public void fillDataRandom(){
         Random pR = new Random();
-        for (int i=0;i<this.dataSize;i++){
+        if(this.data!=null) this.data.clear();
+        for (int i=0;i<this.dataSize;i++) {
             this.data.add(new Integer(pR.nextInt(10)));
         }
     }
     public String getData(){
         String strData = "";
         for (Integer item:this.data) {
-            strData = strData.concat(item.toString());
+            strData = strData.concat(item.toString()+" ");
         }
         //return "txt";
         return strData;
+    }
+    boolean sortData(int left,int right) {
+        if (data == null) return false;
+        else if (right - left > 1) {
+            int pivot = data.get(((right - left) / 2) + left);
+            int i = left;
+            int j = right;
+
+            boolean leftStop = false, rightStop = false;
+            while (i < j) {
+                if (data.get(i) >= pivot) leftStop = true;
+                if (data.get(j) <= pivot) rightStop = true;
+                if (!leftStop) i++;
+                if (!rightStop) j--;
+                if (leftStop && rightStop && (i <= j)) {
+                    int temp = data.get(j);
+                    Integer pItem = data.get(j);
+                    pItem =new Integer(data.get(i));
+                    pItem = data.get(j);
+                    pItem =new Integer(temp);
+                    j--;
+                    leftStop = false;
+                    rightStop = false;
+                }
+            }
+            if (left < j) sortData(left, j);
+            if (right > i) sortData(i, right);
+            return true;
+        }
+        return false;
+    }
+    void sortAuto(){
+        this.data.sort(Comparator.naturalOrder());
     }
 }
