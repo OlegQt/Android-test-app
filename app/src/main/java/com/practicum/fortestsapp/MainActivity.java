@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     // Add global variables here
     private TextView pTxt1,pTxt2;
     private Button pBtn1,pBtn2;
+    Engine pEngine = null;
     // Functions
     String getDataTxt(int [] data) {
         if(data==null)
@@ -78,9 +79,14 @@ public class MainActivity extends AppCompatActivity {
         pTxt1.setText(null);
         pTxt2.setText("Second text");
 
+        // Engine create
+        pEngine = new Engine(1000);
+        pEngine.fillDataRandom();
+        pTxt1.setText(pEngine.getData());
+
         // TODO here
         int data[]  ={6,9,4,5,9};// new int[6];
-        pTxt1.setText(getDataTxt(data));
+        //pTxt1.setText(getDataTxt(data));
         // Button NEW DATA Listener
         pBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
