@@ -1,5 +1,7 @@
 package com.practicum.fortestsapp;
 
+import android.os.Build;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
@@ -60,6 +62,8 @@ public class Engine {
         return false;
     }
     void sortAuto(){
-        this.data.sort(Comparator.naturalOrder());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            this.data.sort(Comparator.naturalOrder());
+        }
     }
 }
