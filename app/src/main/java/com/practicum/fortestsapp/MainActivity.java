@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         });
         // Button ACTION listener
         pBtn3.setOnClickListener(view -> {
-            pTxt3.setText("ACTION COMPLETED");
+            pTxt3.setText(pEngine.actionStart());
         });
         // Slider Listener
         pSld.addOnChangeListener(new Slider.OnChangeListener() {

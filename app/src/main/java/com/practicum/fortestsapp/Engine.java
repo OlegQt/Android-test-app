@@ -28,6 +28,7 @@ public class Engine {
             }
         }
     }
+
     public String getData() {
         String strData = "";
         for (Integer item : this.data) {
@@ -36,6 +37,7 @@ public class Engine {
         //return "txt";
         return strData;
     }
+
     boolean sortData(int left, int right) {
         if (data == null) return false;
         else if (right - left > 1) {
@@ -66,9 +68,33 @@ public class Engine {
         }
         return false;
     }
+
     void sortAuto() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             this.data.sort(Comparator.naturalOrder());
         }
+    }
+
+    String actionStart() {
+        String[] array = new String[10];
+        array[0] = "Каждый";
+        array[1] = "Охотник";
+        array[2] = "Желает";
+        array[3] = "Знать";
+        array[4] = "Где";
+        array[5] = "Сидит";
+        array[6] = "Фазан";
+        array[7] = "";
+        StringBuilder str = new StringBuilder();
+        int iter=0;
+        for (String item : array) {
+            if (item != null) {
+                str.append(item).append("\n");
+                this.pMap.put(String.valueOf(iter),item);
+                iter++;
+            }
+        }
+        return pMap.toString();
+        //return str.toString();
     }
 }

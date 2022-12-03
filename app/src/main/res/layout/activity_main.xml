@@ -55,6 +55,13 @@
         android:layout_gravity="center"
         android:text="txt" />
 
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerInsetStart="16sp"
+        app:dividerInsetEnd="16sp"
+        />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
