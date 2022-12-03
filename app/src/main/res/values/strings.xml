@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">For tests app</string>
+    <string name="txt_for_some_usage">TXT for some usage</string>
 </resources>

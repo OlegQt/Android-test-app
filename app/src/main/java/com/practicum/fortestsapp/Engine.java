@@ -4,34 +4,39 @@ import android.os.Build;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Engine {
     private ArrayList<Integer> data = null;
+    private HashMap<String, String> pMap = new HashMap<>();
     private int dataSize;
+
     // Constructor
-    public Engine(int dataSize){
-        this.data = new ArrayList<Integer>();
+    public Engine(int dataSize) {
+        this.data = new ArrayList<>();
         this.dataSize = dataSize;
     }
 
     // Functions
-    public void fillDataRandom(){
+    public void fillDataRandom() {
         Random pR = new Random();
-        if(this.data!=null) this.data.clear();
-        for (int i=0;i<this.dataSize;i++) {
-            this.data.add(new Integer(pR.nextInt(10)));
+        if (this.data != null) {
+            this.data.clear();
+            for (int i = 0; i < this.dataSize; i++) {
+                this.data.add(pR.nextInt(10));
+            }
         }
     }
-    public String getData(){
+    public String getData() {
         String strData = "";
-        for (Integer item:this.data) {
-            strData = strData.concat(item.toString()+" ");
+        for (Integer item : this.data) {
+            strData = strData.concat(item.toString() + " ");
         }
         //return "txt";
         return strData;
     }
-    boolean sortData(int left,int right) {
+    boolean sortData(int left, int right) {
         if (data == null) return false;
         else if (right - left > 1) {
             int pivot = data.get(((right - left) / 2) + left);
@@ -47,9 +52,9 @@ public class Engine {
                 if (leftStop && rightStop && (i <= j)) {
                     int temp = data.get(j);
                     Integer pItem = data.get(j);
-                    pItem =new Integer(data.get(i));
+                    pItem = new Integer(data.get(i));
                     pItem = data.get(j);
-                    pItem =new Integer(temp);
+                    pItem = new Integer(temp);
                     j--;
                     leftStop = false;
                     rightStop = false;
@@ -61,7 +66,7 @@ public class Engine {
         }
         return false;
     }
-    void sortAuto(){
+    void sortAuto() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             this.data.sort(Comparator.naturalOrder());
         }
