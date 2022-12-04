@@ -3,8 +3,10 @@ package com.practicum.fortestsapp;
 import android.os.Build;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Random;
 
 public class Engine {
@@ -30,12 +32,7 @@ public class Engine {
     }
 
     public String getData() {
-        String strData = "";
-        for (Integer item : this.data) {
-            strData = strData.concat(item.toString() + " ");
-        }
-        //return "txt";
-        return strData;
+        return this.data.toString();
     }
 
     boolean sortData(int left, int right) {
@@ -86,15 +83,24 @@ public class Engine {
         array[6] = "Фазан";
         array[7] = "";
         StringBuilder str = new StringBuilder();
-        int iter=0;
+        int iter = 0;
         for (String item : array) {
             if (item != null) {
                 str.append(item).append("\n");
-                this.pMap.put(String.valueOf(iter),item);
+                this.pMap.put(String.valueOf(iter), item);
                 iter++;
             }
         }
+        // List all elements
+        Iterator<String> pI = this.pMap.values().iterator();
+        while (pI.hasNext()) {
+            String item =pI.next();
+            if (item.contains("н")) pI.remove();
+
+        }
+
         return pMap.toString();
         //return str.toString();
+
     }
 }

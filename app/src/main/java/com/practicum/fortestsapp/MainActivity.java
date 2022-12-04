@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private Button pBtn1,pBtn2,pBtn3;
     private Slider pSld;
     Engine pEngine = null;
+    Logic pLogic = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +43,13 @@ public class MainActivity extends AppCompatActivity {
         pTxt2.setText(null);
 
         // Engine create
-        pEngine = new Engine(30);
+        pEngine = new Engine(15);
         pEngine.fillDataRandom();
-        //pTxt1.setText(pEngine.getData());
+        pLogic = new Logic(10);
+        pLogic.fillDataRandom();
+        pTxt3.setText(pLogic.getData());
+        pTxt3.setText(pLogic.actionStart());
+
 
         // TODO here
         // Button NEW DATA listener

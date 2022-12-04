@@ -16,7 +16,7 @@
         android:stepSize="1.0"
         android:value="8.0"
         android:valueFrom="1.0"
-        android:valueTo="100.0" />
+        android:valueTo="20.0" />
 
     <!--this is the actual edit text which takes the input-->
     <LinearLayout
@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New DATA"
+            android:elevation="8dp"
             app:cornerRadius="6sp" />
 
         <Button
@@ -73,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10sp"
+            android:elevation="2dp"
             android:text="ACTION" />
 
         <TextView
@@ -80,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#FF4500"
+            android:background="#FFAD36"
             android:text="@string/txt_for_some_usage" />
     </LinearLayout>
 
